@@ -1,0 +1,28 @@
+{
+    "format_version": 2,
+    "header": {
+      "name": "HPBarAddon",
+      "description": "アクションバーにHPバーを表示するアドオン",
+      "uuid": "f88c16b7-19c0-7e85-e5a3-eb0e802fab33",
+      "version": [1, 0, 0],
+      "min_engine_version": [1, 20, 73] 
+    },
+    "modules": [
+      {
+        "type": "script",
+        "uuid": "fc640969-9adf-6d8b-64c6-31ce22b09c43",
+        "version": [1, 0, 0],
+        "entry": "scripts/main.js"  
+      }
+    ],
+    "dependencies": [
+      {
+        "module_name": "@minecraft/server",
+        "version": "2.0.0-beta"
+      }
+    ],
+    "capabilities": [  
+      "script_eval"
+    ]
+  }
+  
