@@ -6,12 +6,13 @@ const HP_MAX = 20;
 const MP_OBJECTIVE = "mp";
 const MP_MAX = 100;
 
-const LEVER_OBJECTIVE = "lv";
-const LEVER_MAX = 100;
+const LV_OBJECTIVE = "lv";
+const LV_MAX = 100;
 
 const BAR_CHAR = "|";
 const BAR_LENGTH = 20;
 
+//アクションバーにステータスを表示
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     try {
@@ -38,13 +39,21 @@ system.runInterval(() => {
 
       const mpBar = `§9${BAR_CHAR.repeat(filledMP)}§7${BAR_CHAR.repeat(emptyMP)}`;
       const mpText = `§f${mpScore}§7/§9${MP_MAX}`;
+      
+      // === lvスコア取得 ===
+      const lvScore = world.scoreboard.getObjective(LV_OBJECTIVE)?.getScore(identity) ?? 0;
+      const lvRatio = lvScore / LV_MAX;
+      const filledLV = Math.round(lvRatio * BAR_LENGTH);
+      const emptyLV = BAR_LENGTH - filledLV;
+
+      const lvText = `§f${lvScore}§7`;
 
       // === 最終表示 ===
-      const barText = `§6HP[${hpBar}] ${hpText} MP[${mpBar}] ${mpText}`;
+      const barText = `§aLV.${lvText} §cHP§f[${hpBar}] ${hpText} MP[${mpBar}] ${mpText}`;
       player.onScreenDisplay.setActionBar(barText);
 
     } catch (err) {
-      console.warn(`HP/MPバー表示エラー: ${err}`);
+      console.warn(`LV/HP/MPバー表示エラー: ${err}`);
     }
   }
 }, 5); // 0.25秒ごとに更新
