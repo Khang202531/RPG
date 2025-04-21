@@ -1,10 +1,13 @@
 import { system, world } from "@minecraft/server";
-
+//変数
 const HP_OBJECTIVE = "hp";
 const HP_MAX = 20;
 
 const MP_OBJECTIVE = "mp";
 const MP_MAX = 100;
+
+const LEVER_OBJECTIVE = "lv";
+const LEVER_MAX = 100;
 
 const BAR_CHAR = "|";
 const BAR_LENGTH = 20;
