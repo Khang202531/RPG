@@ -4,8 +4,8 @@ const HP_OBJECTIVE = "hp";
 const MP_OBJECTIVE = "mp";
 const LV_OBJECTIVE = "lv";
 
-const HP_MAX = 5+(lv*5);
-const MP_MAX = 10+(lv*10);
+const HP_MAX = Math.round(LV_OBJECTIVE * 5 + 5);
+const MP_MAX = Math.round(LV_OBJECTIVE * 10 + 10);
 const LV_MAX = 100;
 
 const BAR_CHAR = "|";
