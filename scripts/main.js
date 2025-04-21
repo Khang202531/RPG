@@ -42,9 +42,6 @@ system.runInterval(() => {
       
       // === lvスコア取得 ===
       const lvScore = world.scoreboard.getObjective(LV_OBJECTIVE)?.getScore(identity) ?? 0;
-      const lvRatio = lvScore / LV_MAX;
-      const filledLV = Math.round(lvRatio * BAR_LENGTH);
-      const emptyLV = BAR_LENGTH - filledLV;
 
       const lvText = `§f${lvScore}§7`;
 
